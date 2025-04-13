@@ -11,12 +11,20 @@ import Checkout from "./components/Cart/Checkout";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage";
 import OrderDetailsPage from "./pages/OrderDetailsPage";
 import MyOrderPage from "./pages/MyOrdersPage";
+import AdminLayout from "./components/Admin/AdminLayout";
+import AdminHomePage from "./pages/AdminHomePage";
+import UserManagement from "./components/Admin/UserManagement";
+import ProductManagement from "./components/Admin/ProductManagement";
+import EditProductPage from "./components/Admin/EditProductPage";
+import OrderManagement from "./components/Admin/OrderManagement";
 
 function App() {
   return (
     <BrowserRouter>
+      {/* Notifications  */}
       <Toaster position="top-right" />
       <Routes>
+        {/* User Layout */}
         <Route path="/" element={<UserLayout />}>
           <Route index element={<Home />}></Route>
           <Route path="login" element={<Login />} />
@@ -32,7 +40,14 @@ function App() {
           <Route path="order/:id" element={<OrderDetailsPage />} />
           <Route path="my-orders" element={<MyOrderPage />} />
         </Route>
-        <Route>{/* Admin Layout */}</Route>
+        {/* Admin Layout */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminHomePage />}></Route>
+          <Route path="users" element={<UserManagement />} />
+          <Route path="products" element={<ProductManagement />} />
+          <Route path="products/:id/edit" element={<EditProductPage />} />
+          <Route path="orders" element={<OrderManagement />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
