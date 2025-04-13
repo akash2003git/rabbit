@@ -126,7 +126,6 @@ const NewArrivals = () => {
 
   const updateScrollButtons = () => {
     const container = scrollRef.current;
-
     if (container) {
       const leftScroll = container.scrollLeft;
       const rightScrollable =
