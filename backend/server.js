@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 app.use(express.json());
@@ -13,6 +14,9 @@ const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB
 connectDB();
+
+// API Routes
+app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("WELCOME TO RABBIT API");
