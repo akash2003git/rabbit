@@ -28,7 +28,7 @@ const productSchema = new mongoose.Schema(
       unique: true,
       required: true,
     },
-    catch: {
+    category: {
       type: String,
       required: true,
     },
