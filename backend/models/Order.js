@@ -78,7 +78,7 @@ const orderSchema = new mongoose.Schema(
   { timeseries: true },
 );
 
-module.exports = mongoose.model("order", orderSchema);
+module.exports = mongoose.model("Order", orderSchema);
 
 // <=========================== Order Item Schema =============================>
 //
