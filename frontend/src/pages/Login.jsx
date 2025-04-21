@@ -20,13 +20,12 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      console.log(cart);
       if (cart?.products?.length > 0 && guestId) {
-        dispatch(mergeCart({ guestId, user })).then(() => {
+        dispatch(mergeCart({ guestId, userId: user._id })).then(() => {
           navigate(isCheckoutRedirect ? "/checkout" : "/");
         });
       } else {
-        dispatch(fetchCart({ userId: user }));
+        dispatch(fetchCart({ userId: user._id }));
         navigate(isCheckoutRedirect ? "/checkout" : "/");
       }
     }
